@@ -1,18 +1,18 @@
 "use client";
-import { Content } from "next/font/google";
+
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { IoMdSend } from "react-icons/io";
 import useSocket from "@/State/useSocket";
-import jwt from "jsonwebtoken";
+
 import { httpAxios } from "@/helper/httpaxios";
 import { FaUserAlt } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import clsx from "clsx";
-import { text } from "stream/consumers";
+
 import CryptoJS from "crypto-js";
 
-function page() {
+function Page() {
 
   interface data {
     sender: any;
@@ -158,4 +158,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

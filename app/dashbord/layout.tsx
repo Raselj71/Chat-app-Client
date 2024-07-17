@@ -1,4 +1,4 @@
-'use client'
+
 import Sidenav from "@/Components/Sidenav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
