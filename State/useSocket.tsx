@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
 
-const useSocket = (userId) => {
-  const [socket, setSocket] = useState(null);
+const useSocket = (userId:any) => {
+  const [socket, setSocket] = useState<any>(null);
 
   useEffect(() => {
     const socketIo = io('http://localhost:5000'); 

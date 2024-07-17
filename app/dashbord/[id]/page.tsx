@@ -10,16 +10,16 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import clsx from "clsx";
 import { text } from "stream/consumers";
-import CryptoJS from "crypto-js";
+import  CryptoJS from "crypto-js";
 
 function page() {
   const params = useParams();
   const { id } = params;
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState<any>();
+  const [messages, setMessages] = useState<any>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [originalMessages, setOriginalMessages] = useState([]);
-  let senderid;
+  let senderid : String | null="";
   if (typeof window !== "undefined") {
     senderid = localStorage.getItem("id");
   }
@@ -38,7 +38,7 @@ function page() {
     setMessages(decryptedMessages);
     });
 
-    const decryptmessage = (msg) => {
+    const decryptmessage = (msg:any) => {
       const bytes = CryptoJS.AES.decrypt(msg.content, "rasel");
       const originalText = bytes.toString(CryptoJS.enc.Utf8);
 
@@ -46,9 +46,9 @@ function page() {
     };
 
     if (socket) {
-      socket.on("receiveMessage", (msg) => {
+      socket.on("receiveMessage", (msg:any) => {
         console.log(msg);
-        setMessages((prevMessages) => [...prevMessages, decryptmessage(msg)]);
+        setMessages((prevMessages:any) => [...prevMessages, decryptmessage(msg)]);
       });
     }
   }, [socket]);
@@ -68,7 +68,7 @@ function page() {
     }
   };
 
-  const handleSearch=(e)=>{
+  const handleSearch=(e:any)=>{
    
        const query = e.target.value;
   setSearchQuery(query);
@@ -98,7 +98,7 @@ function page() {
 
       <div className="w-full p-4 flex flex-col h-[85%] ">
         <div className="flex-grow overflow-x-hidden h-10">
-          {messages.map((msg, index) => (
+          {messages.map((msg:any, index:any) => (
             <p
               className={clsx(
                 "my-6 px-2 text-2xl  break-words whitespace-pre-wrap ",

@@ -59,10 +59,12 @@ export default function Page(){
         }
        
 
-         } catch (error) {
+         } catch (error:unknown) {
             
-          
-            toast.error(error.response.data.message)
+           if(error instanceof Error){
+            toast.error(error.response.data.message);
+           }
+            
             
          }
     }

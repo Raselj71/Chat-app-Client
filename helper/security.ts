@@ -1,16 +1,16 @@
-const crypto = require('crypto');
+import * as crypto from 'crypto';
 
-const encrypt = (text, key) => {
+const encrypt = (text:any, key:String) => {
     const iv = crypto.randomBytes(16);
     const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
 
-    let encrypted = cipher.update(text);
+    let encrypted:any = cipher.update(text);
     encrypted = Buffer.concat([encrypted, cipher.final()]);
 
     return iv.toString('hex') + ':' + encrypted.toString('hex');
 };
 
-const decrypt = (encrypted, key) => {
+const decrypt = (encrypted:String, key:String) => {
     const textParts = encrypted.split(':');
     const iv = Buffer.from(textParts[0], 'hex');
     const encryptedText = Buffer.from(textParts[1], 'hex');
