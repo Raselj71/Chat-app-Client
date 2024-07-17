@@ -35,11 +35,11 @@ function Sidenav() {
           httpAxios.get(`/user/singleuser/${decode.id}`).then((response) => {
             setSender(response.data.name);
           });
-          const userdata = response.data.filter((data: any) => {
-            return data._id != decode.id;
-          });
-          setUser(userdata);
-          console.log(userdata);
+          // const userdata = response.data.filter((data: any) => {
+          //   return data._id != decode.id;
+          // });
+          setUser(response.data);
+          console.log(response.data);
         } catch (error) {
           console.error("Error fetching users:", error);
         }
