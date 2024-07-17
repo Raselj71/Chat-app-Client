@@ -11,7 +11,7 @@ export default function Page(){
 
        const router=useRouter()
 
-      const [user, setUser]=useState<{name:String,email:String,phone:String, password:String}>({
+      const [user, setUser]=useState<{name:any,email:any,phone:any, password:any}>({
         name:"",
         email:"",
         phone:"",
@@ -59,11 +59,11 @@ export default function Page(){
         }
        
 
-         } catch (error:unknown) {
+         } catch (error) {
             
-           if(error instanceof Error){
-            toast.error(error.response.data.message);
-           }
+     
+            // toast.error(error.response.data.message);
+           
             
             
          }

@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
     const router=useRouter()
 
-     const [user, setUser]=useState<{email:String,password:String}>({
+     const [user, setUser]=useState<{email:any,password:any}>({
        
         email:"",
         password:""
@@ -54,7 +54,7 @@ export default function Home() {
          } catch (error) {
             
           
-            toast.error(error.response.data.message)
+            // toast.error(error.response.data.message)
             
          }finally{
             // setLoading(false)
