@@ -78,18 +78,18 @@ function Page() {
   };
 
   const handleSearch = (e: any) => {
-    const query = e.target.value;
-    setSearchQuery(query);
+    // const query = e.target.value;
+    // setSearchQuery(query);
 
-    if (query === "") {
-      setMessages(originalMessages);
-    } else {
+    // if (query === "") {
+    //   setMessages(originalMessages);
+    // } else {
       
-      const filteredMessages = originalMessages.filter((message) =>
-        message.content.toLowerCase().includes(query.toLowerCase())
-      );
-      setMessages(filteredMessages);
-    }
+    //   const filteredMessages = originalMessages.filter((message) =>
+    //     message.content.toLowerCase().includes(query.toLowerCase())
+    //   );
+    //   setMessages(filteredMessages);
+    // }
   };
 
   return (
